@@ -45,6 +45,14 @@ function todolistReducer(state = [], action) {
 // Create Store
 const store = Redux.createStore(todolistReducer)
 
+// Subscribe
+const unSubscribe = store.subscribe(()=> {
+    console.log('Updated Store : ', getState());
+});
+setTimeout(()=>{
+    unSubscribe();
+}, 20000)
+
 // Events
 form?.addEventListener('submit', (event)=>{
     event.preventDefault();
